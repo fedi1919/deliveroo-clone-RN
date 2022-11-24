@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import BasketScreen from "./screens/BasketScreen";
 import PreparingOrderScreen from "./screens/PreparingOrderScreen";
+import DeliveryScreen from "./screens/DeliveryScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ export default function App() {
             <Stack.Screen name="Login" component={LoginScreen} />
           )}
           <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+          <Stack.Screen name="Delivery" component={DeliveryScreen} />
           <Stack.Screen
             name="PreparingOrderScreen"
             component={PreparingOrderScreen}
