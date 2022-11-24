@@ -25,7 +25,6 @@ const RestaurantScreen = () => {
           `http://192.168.100.180:5000/api/dish/${id}`
         );
         setDishes(response?.data);
-        console.log(response?.data);
       } catch (error) {
         console.log("err", error);
       }
