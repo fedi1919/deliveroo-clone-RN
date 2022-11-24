@@ -50,7 +50,7 @@ const HomeScreen = () => {
               genre={restaurant.genre}
               address={restaurant.address}
               shortDescription={restaurant.shortDescription}
-              dishes={[]}
+              dishes={restaurant.dishes}
               long={20}
               lat={40}
             />

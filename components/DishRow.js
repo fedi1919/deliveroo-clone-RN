@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToBasket,
   removeFromBasket,
-  selectBassketItemsWithId,
+  selectBasketItemsWithId,
 } from "../redux/features/basketSlice";
 
 const DishRow = ({ id, label, price, image }) => {
   const [isPressed, setIsPressed] = useState(false);
   const dispatch = useDispatch();
-  const items = useSelector((state) => selectBassketItemsWithId(state, id));
+  const items = useSelector((state) => selectBasketItemsWithId(state, id));
 
   const addItemsToBasket = () => {
     dispatch(addToBasket({ id, label, price, image }));
