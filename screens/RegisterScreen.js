@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 import {
   View,
   Text,
@@ -6,16 +5,16 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  Alert,
 } from "react-native";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-
 import { EyeIcon, EyeSlashIcon } from "react-native-heroicons/outline";
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
   const navigation = useNavigation();
 
   const [showPassword, setShowPassword] = useState(false);
-
   return (
     <View className="bg-[#00CCBB] flex-1 relative">
       <View className="absolute top-20 justify-center items-center w-full">
@@ -30,17 +29,28 @@ const LoginScreen = () => {
         className="bg-white absolute bottom-0 h-[65%] w-full shadow-2xl shadow-black rounded-t-[80px]"
       >
         <View className="m-10">
-          <Text className=" text-[#00CCBB] text-2xl font-semibold">LOGIN</Text>
+          <Text className=" text-[#00CCBB] text-2xl font-semibold">
+            REGISTER
+          </Text>
           <View className="flex-row space-x-2 mt-2">
             <Text className=" text-gray-500 text-sm">
-              Don't have an account?
+              Already have an account?
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-              <Text className="text-[#00CCBB] font-medium">Register Now</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+              <Text className="text-[#00CCBB] font-medium">Login Now</Text>
             </TouchableOpacity>
           </View>
 
-          <View className="mt-16 space-y-2">
+          <View className="mt-4">
+            <Text className=" text-gray-500 text-md">Full Name</Text>
+            <TextInput
+              className="border-b-2 border-gray-400 py-4"
+              placeholder="Enter your full name"
+              keyboardType="default"
+            />
+          </View>
+
+          <View className="mt-4">
             <Text className=" text-gray-500 text-md">Email</Text>
             <TextInput
               className="border-b-2 border-gray-400 py-4"
@@ -48,6 +58,7 @@ const LoginScreen = () => {
               keyboardType="email-address"
             />
           </View>
+
           <View className="mt-8 space-y-2">
             <Text className=" text-gray-500 text-md">Password</Text>
             <View className="flex-row items-center  border-b-2 border-gray-400">
@@ -67,7 +78,7 @@ const LoginScreen = () => {
           </View>
           <TouchableOpacity className="bg-[#00CCBB] rounded-full p-4 mt-12 mx-8">
             <Text className="text-center text-white text-xl font-semibold">
-              Sign In
+              Sign Up
             </Text>
           </TouchableOpacity>
         </View>
@@ -76,4 +87,5 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
+

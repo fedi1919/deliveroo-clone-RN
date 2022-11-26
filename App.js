@@ -10,11 +10,12 @@ import { store } from "./redux/store";
 import BasketScreen from "./screens/BasketScreen";
 import PreparingOrderScreen from "./screens/PreparingOrderScreen";
 import DeliveryScreen from "./screens/DeliveryScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const user = true;
+  const user = false;
   return (
     <Provider store={store}>
       <NavigationContainer>
@@ -26,11 +27,12 @@ export default function App() {
             <Stack.Screen name="Login" component={LoginScreen} />
           )}
           <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Delivery" component={DeliveryScreen} />
           <Stack.Screen
             name="PreparingOrderScreen"
             component={PreparingOrderScreen}
-            options={{presentation: "fullScreenModal"}}
+            options={{ presentation: "fullScreenModal" }}
           />
           <Stack.Screen
             name="Basket"
