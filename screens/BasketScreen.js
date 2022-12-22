@@ -3,12 +3,12 @@ import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 
+import { selectRestaurant } from "../redux/features/restaurantSlice";
 import {
   removeFromBasket,
   selectBasketItems,
   selectBasketTotal,
 } from "../redux/features/basketSlice";
-import { selectRestaurant } from "../redux/features/restaurantSlice";
 import { XCircleIcon } from "react-native-heroicons/solid";
 
 const BasketScreen = () => {

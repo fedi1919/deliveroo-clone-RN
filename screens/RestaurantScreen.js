@@ -11,10 +11,8 @@ import {
 
 import DishRow from "../components/DishRow";
 import BasketIcon from "../components/BasketIcon";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  setRestaurant,
-} from "../redux/features/restaurantSlice";
+import { useDispatch } from "react-redux";
+import { setRestaurant } from "../redux/features/restaurantSlice";
 
 const RestaurantScreen = () => {
   const [dishes, setDishes] = useState([]);

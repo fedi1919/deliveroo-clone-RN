@@ -56,7 +56,6 @@ const DeliveryScreen = () => {
             longitude: 10.6050537,
           }}
           title={restaurant.title}
-          description={restaurant.shortDescription}
           identifier="origin"
           pinColor="#00CCBB"
         />

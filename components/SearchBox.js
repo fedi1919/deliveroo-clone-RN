@@ -1,21 +1,30 @@
-import { View, TextInput } from "react-native";
 import React from "react";
+import { View, TextInput } from "react-native";
 import {
-  AdjustmentsHorizontalIcon,
-  MagnifyingGlassIcon,
+  MagnifyingGlassIcon
 } from "react-native-heroicons/outline";
 
-const SearchBox = () => {
+const SearchBox = ({restaurants, setSearchResults}) => {
+  const searchHandler = () => {}
+
+  const searchChangeHandler = (text) => {
+    if (!text) return setSearchResults(restaurants)
+
+    const resultsArray = restaurants.filter((restaurant) => restaurant.title.includes(text))
+    setSearchResults(resultsArray);
+  }
+
+
   return (
     <View className="mx-4 flex-row items-center space-x-2 pb-2">
       <View className="flex-row space-x-2 bg-gray-200 p-3 flex-1">
-        <MagnifyingGlassIcon color="#00CCBB" />
+        <MagnifyingGlassIcon color="#00CCBB" onPress={searchHandler}/>
         <TextInput
-          placeholder="Restaurants and Cuisines"
+          placeholder="Search for Restaurants"
           keyboardType="default"
+          onChangeText={searchChangeHandler}
         />
       </View>
-      <AdjustmentsHorizontalIcon color="#00CCBB" />
     </View>
   );
 };

@@ -1,25 +1,23 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 
-import { UserIcon, ChevronDownIcon } from "react-native-heroicons/outline";
+import { UserIcon } from "react-native-heroicons/outline";
+import { logout, selectUser } from "../redux/features/userSlice";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = () => {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
   return (
-    <View className="flex-row pb-3 items-center mx-4 space-x-2">
-      <Image
-        className="h-14 w-14 rounded-full"
-        source={{
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk5oJE1SXBEuhb75i1oLWgXbYISmggjMTmlkwgBGLP1w&s",
-        }}
-      />
-      <View className="flex-1">
-        <Text className="font-bold text-gray-400 text-xs">User Name</Text>
-        <Text className="font-bold tet-xl">
-          Current Location
-          <ChevronDownIcon size={20} color="#00CCBB" />
-        </Text>
+    <View className="flex-row mt-4 pb-3 items-center mx-4 space-x-2">
+      <View className="flex-1 space-y-2">
+        <Text className="font-bold tet-xl">{user?.fullName}</Text>
+        <Text className="font-bold text-gray-400 text-xs">{user?.email}</Text>
       </View>
-      <UserIcon size={35} color="#00CCBB" />
+      <TouchableOpacity onPress={() => dispatch(logout())}>
+        <Text className="text-teal-500 text-xl font-medium">Logout</Text>
+      </TouchableOpacity>
     </View>
   );
 };
